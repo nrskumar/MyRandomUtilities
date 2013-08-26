@@ -47,6 +47,10 @@ namespace ModifiedReadonlyFiles
                                 //    File.SetAttributes(f, attributes);
                                 //    Console.WriteLine("The {0} file is no longer RO.", f);
                                 //} 
+
+				//string folderPath = f.Substring(sourceFolder.Length);
+                                //string DestinationFolderPath = destinationFolder + getWithoutFileName(folderPath);
+                                //results.Add("xcopy \"" + f + "\" \"" + DestinationFolderPath + "\" /R /Y");
                             }
                         }
                         DirSearch(d);
@@ -88,6 +92,11 @@ namespace ModifiedReadonlyFiles
         {
             return true;
 
+        }
+
+	private static string getWithoutFileName(string file)
+        {
+            return file.Substring(0, file.LastIndexOf('\\') + 1);
         }
     }
 }
